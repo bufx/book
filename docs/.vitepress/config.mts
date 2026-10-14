@@ -5,7 +5,7 @@ export default defineConfig({
   title: "Book",
   titleTemplate: 'bufx',
   description: "Programmer books",
-  head: [['link', { rel: 'icon', href: '/images/favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: '/book/images/favicon.ico' }]],
   base: '/book',
   // 当设置为 true 时，VitePress 将从 URL 中删除 .html 后缀。
   // cleanUrls: true,
@@ -70,7 +70,8 @@ function nav() {
         { text: 'Python 基础', link: '/python/basics/introduction' },
         { text: 'PyMySQL', link: '/python/pymysql/introduction-and-installation' },
         { text: 'Flask3', link: '/python/flask3/introduction' },
-        { text: 'FastAPI', link: '/python/fastapi/introduction' }
+        { text: 'FastAPI', link: '/python/fastapi/introduction' },
+        { text: 'Pandas2', link: '/python/pandas2/introduction' }
       ]
     },
     {
@@ -338,6 +339,14 @@ function sidebarPython() {
         { text: '中间件', link: 'fastapi/middleware' },
         { text: '依赖注入', link: 'fastapi/dependency-injection' },
         { text: '集成SQLAlchemyORM', link: 'fastapi/integrating-sqlalchemy-orm' }
+      ]
+    },
+    {
+      text: 'Pandas2',
+      collapsed: true,
+      items: [
+        { text: '初识Pandas2', link: 'pandas2/introduction' },
+        { text: 'NumPy数据结构基础', link: 'pandas2/numpy-data-structures' }
       ]
     }
   ]
@@ -1222,6 +1231,6 @@ function sidebarTools() {
 
 function socialLinks() {
   return [
-    { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+    { icon: 'github', link: 'https://github.com/bufx/book' }
   ]
 }
