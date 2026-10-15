@@ -346,7 +346,8 @@ function sidebarPython() {
       collapsed: true,
       items: [
         { text: '初识Pandas2', link: 'pandas2/introduction' },
-        { text: 'NumPy数据结构基础', link: 'pandas2/numpy-data-structures' }
+        { text: 'NumPy数据结构基础', link: 'pandas2/numpy-data-structures' },
+        { text: 'Pandas2数据结构', link: 'pandas2/pandas2-data-structures' }
       ]
     }
   ]
