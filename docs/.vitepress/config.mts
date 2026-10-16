@@ -347,7 +347,9 @@ function sidebarPython() {
       items: [
         { text: '初识Pandas2', link: 'pandas2/introduction' },
         { text: 'NumPy数据结构基础', link: 'pandas2/numpy-data-structures' },
-        { text: 'Pandas2数据结构', link: 'pandas2/pandas2-data-structures' }
+        { text: 'Pandas2数据结构', link: 'pandas2/pandas2-data-structures' },
+        { text: 'Pandas2数据读取与导出', link: 'pandas2/data-reading-and-exporting' },
+        { text: 'Pandas2基本数据分析操作', link: 'pandas2/basic-data-analysis-operations' }
       ]
     }
   ]
