@@ -71,7 +71,9 @@ function nav() {
         { text: 'PyMySQL', link: '/python/pymysql/introduction-and-installation' },
         { text: 'Flask3', link: '/python/flask3/introduction' },
         { text: 'FastAPI', link: '/python/fastapi/introduction' },
-        { text: 'Pandas2', link: '/python/pandas2/introduction' }
+        { text: 'Pandas2', link: '/python/pandas2/introduction' },
+        { text: 'PyTorch2', link: '/python/pytorch2/introduction' },
+        { text: 'YOLO26', link: '/python/yolo26/introduction' }
       ]
     },
     {
@@ -350,6 +352,30 @@ function sidebarPython() {
         { text: 'Pandas2数据结构', link: 'pandas2/pandas2-data-structures' },
         { text: 'Pandas2数据读取与导出', link: 'pandas2/data-reading-and-exporting' },
         { text: 'Pandas2基本数据分析操作', link: 'pandas2/basic-data-analysis-operations' }
+      ]
+    },
+    {
+      text: 'PyTorch2',
+      collapsed: true,
+      items: [
+        { text: 'PyTorch2简介', link: 'pytorch2/introduction' },
+        { text: 'PyTorch2安装与环境配置', link: 'pytorch2/installation-and-environment-setup' },
+        { text: '初识PyTorch2', link: 'pytorch2/getting-started' }
+      ]
+    },
+    {
+      text: 'YOLO26',
+      collapsed: true,
+      items: [
+        { text: 'YOLO26简介', link: 'yolo26/introduction' },
+        { text: 'YOLO26 Hello World项目搭建', link: 'yolo26/hello-world-project-setup' },
+        { text: 'YOLO26模型架构解析', link: 'yolo26/model-architecture-analysis' },
+        { text: 'YOLO26模型训练与优化', link: 'yolo26/model-training-and-optimization' },
+        { text: 'YOLO26摄像头与实时检测', link: 'yolo26/camera-and-real-time-detection' },
+        { text: 'YOLO26数据集与标注', link: 'yolo26/dataset-and-annotation' },
+        { text: '训练自己的YOLO26模型', link: 'yolo26/training-your-own-yolo26-model' },
+        { text: 'YOLO26的多任务', link: 'yolo26/multi-task' },
+        { text: 'YOLO26模型导出', link: 'yolo26/model-export' }
       ]
     }
   ]
