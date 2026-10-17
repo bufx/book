@@ -370,7 +370,7 @@ function sidebarPython() {
         { text: 'YOLO26简介', link: 'yolo26/introduction' },
         { text: 'YOLO26 Hello World项目搭建', link: 'yolo26/hello-world-project-setup' },
         { text: 'YOLO26模型架构解析', link: 'yolo26/model-architecture-analysis' },
-        { text: 'YOLO26模型训练与优化', link: 'yolo26/model-training-and-optimization' },
+        { text: 'YOLO26图片与视频推理', link: 'yolo26/image-and-video-inference' },
         { text: 'YOLO26摄像头与实时检测', link: 'yolo26/camera-and-real-time-detection' },
         { text: 'YOLO26数据集与标注', link: 'yolo26/dataset-and-annotation' },
         { text: '训练自己的YOLO26模型', link: 'yolo26/training-your-own-yolo26-model' },
