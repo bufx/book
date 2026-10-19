@@ -375,7 +375,16 @@ function sidebarPython() {
         { text: 'YOLO26数据集与标注', link: 'yolo26/dataset-and-annotation' },
         { text: '训练自己的YOLO26模型', link: 'yolo26/training-your-own-yolo26-model' },
         { text: 'YOLO26的多任务', link: 'yolo26/multi-task' },
-        { text: 'YOLO26模型导出', link: 'yolo26/model-export' }
+        { text: 'YOLO26模型导出', link: 'yolo26/model-export' },
+        {
+          text: '农作物病虫害叶片识别系统',
+          collapsed: true,
+          items: [
+            { text: '训练数据集', link: 'yolo26/crop-disease-and-pest-leaf-recognition-system/training-dataset' },
+            { text: '创建后端和前端项目', link: 'yolo26/crop-disease-and-pest-leaf-recognition-system/create-backend-and-frontend-projects' },
+            { text: 'AI编程生成项目代码', link: 'yolo26/crop-disease-and-pest-leaf-recognition-system/ai-code-generation' }
+          ]
+        }
       ]
     }
   ]
