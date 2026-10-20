@@ -105,7 +105,7 @@ Page({
 
 ### 运算
 
-可以在 `{{}}` 内进行简单的运算，支持的有如下几种方式：
+可以在 <span v-pre>`{{}}`</span> 内进行简单的运算，支持的有如下几种方式：
 
 ```html
 <!--pages/operation/operation.wxml-->
