@@ -80,7 +80,8 @@ function nav() {
       text: '前端',
       items: [
         { text: 'TypeScript', link: '/frontend/typescript/introduction' },
-        { text: 'ES6', link: '/frontend/es6/introduction' }
+        { text: 'ES6', link: '/frontend/es6/introduction' },
+        { text: 'Vue3', link: '/frontend/vue3/introduction' }
       ]
     },
     {
@@ -1147,6 +1148,27 @@ function sidebarFrontend() {
         { text: 'Symbol', link: 'es6/symbol' },
         { text: 'Map 与 Set', link: 'es6/map-and-set' },
         { text: 'Reflect 与 Proxy', link: 'es6/reflect-and-proxy' }
+      ]
+    },
+    {
+      text: 'Vue3',
+      collapsed: true,
+      items: [
+        { text: 'Vue3 简介', link: 'vue3/introduction' },
+        { text: 'Vite 简介', link: 'vue3/vite-introduction' },
+        { text: 'Vite构建Vue项目', link: 'vue3/vite-build-vue-project' },
+        { text: '模板语法', link: 'vue3/template-syntax' },
+        { text: '响应式基础', link: 'vue3/reactivity-fundamentals' },
+        { text: '计算属性 computed', link: 'vue3/computed-properties' },
+        { text: '类与样式绑定', link: 'vue3/class-and-style-bindings' },
+        { text: '条件渲染', link: 'vue3/conditional-rendering' },
+        { text: '列表渲染', link: 'vue3/list-rendering' },
+        { text: '事件处理', link: 'vue3/event-handling' },
+        { text: '表单输入绑定', link: 'vue3/form-input-binding' },
+        { text: '侦听器 watch', link: 'vue3/watchers' },
+        { text: '模板引用 ref', link: 'vue3/template-refs' },
+        { text: '组件基础', link: 'vue3/component-basics' },
+        { text: '生命周期', link: 'vue3/lifecycle' }
       ]
     }
   ]
