@@ -1168,7 +1168,8 @@ function sidebarFrontend() {
         { text: '侦听器 watch', link: 'vue3/watchers' },
         { text: '模板引用 ref', link: 'vue3/template-refs' },
         { text: '组件基础', link: 'vue3/component-basics' },
-        { text: '生命周期', link: 'vue3/lifecycle' }
+        { text: '生命周期', link: 'vue3/lifecycle' },
+        { text: 'element-plus UI框架', link: 'vue3/element-plus' }
       ]
     }
   ]
