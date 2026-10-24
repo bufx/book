@@ -352,7 +352,16 @@ function sidebarPython() {
         { text: 'NumPy数据结构基础', link: 'pandas2/numpy-data-structures' },
         { text: 'Pandas2数据结构', link: 'pandas2/pandas2-data-structures' },
         { text: 'Pandas2数据读取与导出', link: 'pandas2/data-reading-and-exporting' },
-        { text: 'Pandas2基本数据分析操作', link: 'pandas2/basic-data-analysis-operations' }
+        {
+          text: 'Pandas2基本数据分析操作',
+          collapsed: true,
+          items: [
+            { text: 'Pandas2索引标签操作', link: 'pandas2/basic-data-analysis-operations/indexing-and-labeling-operations' },
+            { text: 'Pandas2数据信息查看操作', link: 'pandas2/basic-data-analysis-operations/viewing-data-information' },
+            { text: 'Pandas2统计计算操作', link: 'pandas2/basic-data-analysis-operations/statistical-computation-operations' },
+            { text: 'Pandas2位置排序计算操作', link: 'pandas2/basic-data-analysis-operations/position-sorting-computation-operations' }
+          ]
+        }
       ]
     },
     {
