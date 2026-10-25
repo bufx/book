@@ -359,7 +359,21 @@ function sidebarPython() {
             { text: 'Pandas2索引标签操作', link: 'pandas2/basic-data-analysis-operations/indexing-and-labeling-operations' },
             { text: 'Pandas2数据信息查看操作', link: 'pandas2/basic-data-analysis-operations/viewing-data-information' },
             { text: 'Pandas2统计计算操作', link: 'pandas2/basic-data-analysis-operations/statistical-computation-operations' },
-            { text: 'Pandas2位置排序计算操作', link: 'pandas2/basic-data-analysis-operations/position-sorting-computation-operations' }
+            { text: 'Pandas2位置排序计算操作', link: 'pandas2/basic-data-analysis-operations/position-sorting-computation-operations' },
+            { text: 'Pandas2数据选择操作', link: 'pandas2/basic-data-analysis-operations/data-selection-operations' },
+            { text: 'Pandas2复杂数据查询操作', link: 'pandas2/basic-data-analysis-operations/complex-data-query-operations' },
+            { text: 'Pandas2数据类型转换操作', link: 'pandas2/basic-data-analysis-operations/data-type-conversion-operations' },
+            { text: 'Pandas2数据排序操作', link: 'pandas2/basic-data-analysis-operations/data-sorting-operations' },
+            { text: 'Pandas2数据增改删操作', link: 'pandas2/basic-data-analysis-operations/data-addition-modification-deletion-operations' },
+            { text: 'Pandas2高级查询过滤', link: 'pandas2/basic-data-analysis-operations/advanced-query-filtering' },
+            { text: 'Pandas2数据迭代操作', link: 'pandas2/basic-data-analysis-operations/data-iteration-operations' },
+            { text: 'Pandas2高级函数应用', link: 'pandas2/basic-data-analysis-operations/advanced-function-applications' },
+            { text: 'Pandas2数据合并与对比', link: 'pandas2/basic-data-analysis-operations/data-merging-and-comparison' },
+            { text: 'Pandas2数据清洗与准备', link: 'pandas2/basic-data-analysis-operations/data-cleaning-and-preparation' },
+            { text: 'Pandas2数据重塑与透视', link: 'pandas2/basic-data-analysis-operations/data-resizing-and-pivoting' },
+            { text: 'Pandas2数据分组与聚合', link: 'pandas2/basic-data-analysis-operations/data-grouping-and-aggregation' },
+            { text: 'Pandas2时间序列数据分析', link: 'pandas2/basic-data-analysis-operations/time-series-data-analysis' },
+            { text: 'Pandas2数据绘图与可视化', link: 'pandas2/basic-data-analysis-operations/data-plotting-and-visualization' }
           ]
         }
       ]
