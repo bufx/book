@@ -73,7 +73,8 @@ function nav() {
         { text: 'FastAPI', link: '/python/fastapi/introduction' },
         { text: 'Pandas2', link: '/python/pandas2/introduction' },
         { text: 'PyTorch2', link: '/python/pytorch2/introduction' },
-        { text: 'YOLO26', link: '/python/yolo26/introduction' }
+        { text: 'YOLO26', link: '/python/yolo26/introduction' },
+        { text: 'LangChain', link: '/python/langchain/introduction' }
       ]
     },
     {
