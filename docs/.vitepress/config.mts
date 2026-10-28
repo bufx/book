@@ -411,6 +411,13 @@ function sidebarPython() {
           ]
         }
       ]
+    },
+    {
+      text: 'LangChain',
+      collapsed: true,
+      items: [
+        { text: 'LangChain简介', link: 'langchain/introduction' }
+      ]
     }
   ]
 }
