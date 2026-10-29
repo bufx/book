@@ -416,7 +416,8 @@ function sidebarPython() {
       text: 'LangChain',
       collapsed: true,
       items: [
-        { text: 'LangChain简介', link: 'langchain/introduction' }
+        { text: 'LangChain简介', link: 'langchain/introduction' },
+        { text: 'RAG简介', link: 'langchain/rag-introduction' },
       ]
     }
   ]
