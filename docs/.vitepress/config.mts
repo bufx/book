@@ -418,6 +418,7 @@ function sidebarPython() {
       items: [
         { text: 'LangChain简介', link: 'langchain/introduction' },
         { text: 'RAG简介', link: 'langchain/rag-introduction' },
+        { text: 'Ollama简介以及安装和使用', link: 'langchain/ollama-introduction-and-installation' }
       ]
     }
   ]
