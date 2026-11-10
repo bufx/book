@@ -418,7 +418,8 @@ function sidebarPython() {
       items: [
         { text: 'LangChain简介', link: 'langchain/introduction' },
         { text: 'RAG简介', link: 'langchain/rag-introduction' },
-        { text: 'Ollama介绍和使用', link: 'langchain/ollama-introduction-and-usage' }
+        { text: 'Ollama介绍和使用', link: 'langchain/ollama-introduction-and-usage' },
+        { text: 'OpenAI库介绍和使用', link: 'langchain/openai-library-introduction-and-usage' }
       ]
     }
   ]
