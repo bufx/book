@@ -102,7 +102,11 @@ Ollama 极大地降低了普通人使用大语言模型的门槛，让任何人�
 
 ### 安装openai库
 
-`pip install openai -i https://pypi.tuna.tsinghua.edu.cn/simple  --trusted-host pypi.tuna.tsinghua.edu.cn`
+```sh
+pip install openai -i https://pypi.tuna.tsinghua.edu.cn/simple  --trusted-host pypi.tuna.tsinghua.edu.cn
+```
+
+
 
 ### 示例
 
