@@ -30,26 +30,29 @@ client = OpenAI(
 
 ```python
 from openai import OpenAI
-import os
 
 # 创建OpenAI客户端
 client = OpenAI(
-    # 如果没有配置环境变量，请用阿里云百炼API Key替换：api_key="sk-xxx"
-    api_key=os.getenv("DASHSCOPE_API_KEY"),
-    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
+    api_key='sk-4feab9b9xxxxxxxxxxxxxxxxxdf1e9268',
+    base_url='https://dashscope.aliyuncs.com/compatible-mode/v1'
 )
 
-# 创建对话
+# 创建聊天 历史记录
 messages = [
-    {"role": "system", "content": "你是一个Python编程大师"},
-    {"role": "assistant", "content": "我是一个Python编程大师，请问有什么可以帮助您的吗？"},
-    {"role": "user", "content": "给我写一个Python快速排序算法"}
+    {'role': 'system', 'content': '你是个Python编程大师。'},
+    {'role': 'assistant', 'content': '我是一个Python编程大师，请问有什么可以帮助您的吗？'},
+    {'role': 'user', 'content': '给我写一个Python快速排序算法'}
 ]
-# 发送请求
+
+# 创建对话
 completion = client.chat.completions.create(
-    model="qwen3.5-plus",  # 您可以按需更换为其它深度思考模型
-    messages=messages
+    model='qwen4-max',
+    messages=messages,
+    stream=True # 开启流式输出
 )
+
+# 获取结果
+print(completion.choices[0].message.content)
 ```
 
 **ChatCompletion参数**
@@ -364,37 +367,174 @@ quick_sort_iterative     0.50s
 2. 通过遍历completion对象，得到chunk块，chunk.choices[0]有个属性delta，
 3. 假如有content属性以及有值，我就打印delta的content内容，也就是流的块内容。
 
-### 实现代码：
+实现代码
 
 ```python
 from openai import OpenAI
-import os
 
 # 创建OpenAI客户端
 client = OpenAI(
-    # 如果没有配置环境变量，请用阿里云百炼API Key替换：api_key="sk-xxx"
-    api_key=os.getenv("DASHSCOPE_API_KEY"),
-    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
+    api_key='sk-4feab9b9xxxxxxxxxxxxxf1e9268',
+    base_url='https://dashscope.aliyuncs.com/compatible-mode/v1'
 )
+
+# 创建聊天 历史记录
+messages = [
+    {'role': 'system', 'content': '你是个Python编程大师。'},
+    {'role': 'assistant', 'content': '我是一个Python编程大师，请问有什么可以帮助您的吗？'},
+    {'role': 'user', 'content': '给我写一个Python快速排序算法'}
+]
 
 # 创建对话
-messages = [
-    {"role": "system", "content": "你是一个Python编程大师"},
-    {"role": "assistant", "content": "我是一个Python编程大师，请问有什么可以帮助您的吗？"},
-    {"role": "user", "content": "给我写一个Python快速排序算法"}
-]
-# 发送请求
 completion = client.chat.completions.create(
-    model="qwen3.5-plus",  # 您可以按需更换为其它深度思考模型
+    model='qwen4-max',
     messages=messages,
-    stream=True  # 开启流式输出
+    stream=True # 开启流式输出
 )
+
+# 获取结果
+# print(completion.choices[0].message.content)
+
 # 获取流式结果
 for chunk in completion:
-    delta = chunk.choices[0].delta  # 获取当前chunk的delta
-    if hasattr(delta, "content") and delta.content is not None:  # 获取当前chunk的reasoning_content
-        print(delta.content, end="", flush=True)
+    # 先检查 choices 是否为空，为空则跳过
+    if not chunk.choices:
+        continue
+    delta = chunk.choices[0].delta # 获取当前块的delta内容
+    if hasattr(delta, 'content') and delta.content is not None:
+        print(delta.content, end='', flush=True)
 ```
 
-运行结果，就是一段一段的流式输出了。
+## 开启思考模式
 
+大模型默认是不开启思考的，如果我们需要开启回答的时候，带上上大模型的思考过程。
+
+我们可以设置 extra_body={"enable_thinking": True}
+
+另外，在打印大模型思考内容的时候，delta对象有个reasoning_content属性，我们需要判断是否有这个属性，以及是否有值，然后才打印，以及为了输出效果好，我们定义一个is_answering 是否进入回复阶段属性，默认设置Flase,只有当第一次出现正式回复内容的时候，才设置成True。
+
+代码实现：
+
+```python
+from openai import OpenAI
+
+# 创建OpenAI客户端
+client = OpenAI(
+    api_key='sk-4feab9xxxxxxxxxxxxxxxxx1e9268',
+    base_url='https://dashscope.aliyuncs.com/compatible-mode/v1'
+)
+
+# 创建聊天 历史记录
+messages = [
+    {'role': 'system', 'content': '你是个Python编程大师。'},
+    {'role': 'assistant', 'content': '我是一个Python编程大师，请问有什么可以帮助您的吗？'},
+    {'role': 'user', 'content': '给我写一个Python快速排序算法'}
+]
+
+# 创建对话
+completion = client.chat.completions.create(
+    model='qwen4-max',
+    messages=messages,
+    extra_body={'enable_thinking': True}, # 开启思考
+    stream=True # 开启流式输出
+)
+
+is_answering = False # 是否进入回复阶段
+print('\n' + '=' * 20 + '思考过程' + '=' * 20)
+
+# 获取流式结果
+for chunk in completion:
+    # 先检查 choices 是否为空，为空则跳过
+    if not chunk.choices:
+        continue
+    delta = chunk.choices[0].delta # 获取当前块的delta内容
+    if hasattr(delta, 'reasoning_content') and delta.reasoning_content is not None: # 检查是否有思考内容
+        if not is_answering:
+            print(delta.reasoning_content, end='', flush=True)
+    if hasattr(delta, 'content') and delta.content is not None: # 检查是否有内容
+        if not is_answering:
+            print('\n' + '=' * 20 + '完整回复' + '=' * 20)
+            is_answering = True
+        print(delta.content, end='', flush=True)
+     
+=====输出======
+
+====================思考过程====================
+用户想要一个Python快速排序算法。我应该提供一个清晰、易懂且高效的实现。我会提供几个版本：
+1. 基础版本（易于理解）
+2. 原地排序版本（更节省空间）
+3. 带注释的版本
+
+让我写一个完整的实现，包括测试用例。
+====================完整回复====================
+以下是 Python 中快速排序（Quick Sort）算法的三种常见实现方式，分别适用于不同场景，并附有测试示例和说明，方便你根据需求选择使用。
+....
+```
+
+## 历史消息
+
+前面的代码示例里面，有不少小伙伴有疑问，为什么messages消息列表的内容，控制台输出里面没有显示。
+
+![](openai-library-introduction-and-usage-img/1772631244025.png)
+
+这里有个重要的概念，就是这里的messages是历史消息，历史消息仅用于为模型提供上下文，它们不会出现在输出中。输出只包含模型基于上下文生成的新内容。
+
+下面我们来搞一个稍微复杂点历史消息。
+
+![](openai-library-introduction-and-usage-img/1772632085919.png)
+
+```python
+from openai import OpenAI
+
+# 创建OpenAI客户端
+client = OpenAI(
+    api_key='sk-4feab9bxxxxxxxxxxxxxx1e9268',
+    base_url='https://dashscope.aliyuncs.com/compatible-mode/v1'
+)
+
+# 创建聊天 历史记录
+messages = [
+    {"role": "system", "content": "你是一个计算方面的大师"},
+    {"role": "user", "content": "张三有5块钱"},
+    {"role": "assistant", "content": "是的"},
+    {"role": "user", "content": "李四有3块钱，张三给了李四1块钱"},
+    {"role": "assistant", "content": "是的"},
+    {"role": "user", "content": "现在张三和李四分别有多少钱？"}
+]
+
+# 创建对话
+completion = client.chat.completions.create(
+    model='qwen4-max',
+    messages=messages,
+    extra_body={'enable_thinking': True}, # 开启思考
+    stream=True # 开启流式输出
+)
+
+is_answering = False # 是否进入回复阶段
+print('\n' + '=' * 20 + '思考过程' + '=' * 20)
+
+# 获取流式结果
+for chunk in completion:
+    # 先检查 choices 是否为空，为空则跳过
+    if not chunk.choices:
+        continue
+    delta = chunk.choices[0].delta # 获取当前块的delta内容
+    if hasattr(delta, 'reasoning_content') and delta.reasoning_content is not None: # 检查是否有思考内容
+        if not is_answering:
+            print(delta.reasoning_content, end='', flush=True)
+    if hasattr(delta, 'content') and delta.content is not None: # 检查是否有内容
+        if not is_answering:
+            print('\n' + '=' * 20 + '完整回复' + '=' * 20)
+            is_answering = True
+        print(delta.content, end='', flush=True)
+        
+====输出=====
+
+====================思考过程====================
+
+====================完整回复====================
+张三：5 − 1 = **4 块钱**
+李四：3 + 1 = **4 块钱**
+
+两人现在都是 4 块钱，一共 8 块钱（钱只是转移，总量不变）。
+```
