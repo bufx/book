@@ -419,7 +419,20 @@ function sidebarPython() {
         { text: 'LangChain简介', link: 'langchain/introduction' },
         { text: 'RAG简介', link: 'langchain/rag-introduction' },
         { text: 'Ollama介绍和使用', link: 'langchain/ollama-introduction-and-usage' },
-        { text: 'OpenAI库介绍和使用', link: 'langchain/openai-library-introduction-and-usage' }
+        { text: 'OpenAI库介绍和使用', link: 'langchain/openai-library-introduction-and-usage' },
+        { text: '基于LangChain开发介绍', link: 'langchain/langchain-development-introduction' },
+        { text: 'LangChain调用大语言模型', link: 'langchain/using-langchain-to-call-large-language-models' },
+        { text: 'LangChain调用大模型设置流式输出', link: 'langchain/using-langchain-to-call-large-language-models-with-streaming' },
+        { text: 'LangChain调用聊天大模型', link: 'langchain/using-langchain-to-call-chat-large-language-models' },
+        { text: 'LangChain调用聊天大模型消息简写', link: 'langchain/using-langchain-to-call-chat-large-language-models-with-message-briefing' },
+        { text: 'LangChain调用嵌入模型', link: 'langchain/using-langchain-to-call-embedding-models' },
+        { text: 'LangChain提示词模板', link: 'langchain/langchain-prompt-templates' },
+        { text: '实现复杂多模型链路调用', link: 'langchain/using-langchain-to-implement-complex-multi-model-chains' },
+        { text: '临时会话记忆功能实现', link: 'langchain/using-langchain-to-implement-temporary-session-memory' },
+        { text: '持久化会话记忆功能实现', link: 'langchain/using-langchain-to-implement-persistent-session-memory' },
+        { text: '文档加载器', link: 'langchain/langchain-document-loaders' },
+        { text: '文档分割器', link: 'langchain/langchain-document-splitters' },
+        { text: '向量以及RAG增强检索实现', link: 'langchain/langchain-vector-and-rag-enhanced-retrieval' }
       ]
     }
   ]
